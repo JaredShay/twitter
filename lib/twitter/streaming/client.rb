@@ -108,6 +108,8 @@ module Twitter
     private
 
       def request(method, uri, params)
+        puts params.inspect
+
         before_request.call
         headers = Twitter::Headers.new(self, method, uri, params).request_headers
         request = HTTP::Request.new(method, uri + '?' + URI.encode_www_form(params), headers, proxy)
