@@ -18,7 +18,7 @@ module Twitter
 
     def request_headers
       bearer_token_request = @options.delete(:bearer_token_request)
-      headers = {}
+      headers = @options[:headers] || {}
       if bearer_token_request
         headers[:accept]        = '*/*'
         headers[:authorization] = bearer_token_credentials_auth_header
